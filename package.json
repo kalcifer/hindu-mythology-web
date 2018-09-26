@@ -13,5 +13,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby-source-graphql": "^2.0.2"
   }
 }
