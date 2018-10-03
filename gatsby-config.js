@@ -16,6 +16,7 @@ module.exports = {
         url:
           "https://api-apeast.graphcms.com/v1/cjmhlo2x61npn01dlichpc3z4/master"
       }
-    }
+    },
+    `gatsby-plugin-styled-components`
   ]
 };

@@ -15,6 +15,9 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby-source-graphql": "^2.0.2"
+    "babel-plugin-styled-components": "^1.8.0",
+    "gatsby-plugin-styled-components": "^3.0.0",
+    "gatsby-source-graphql": "^2.0.2",
+    "styled-components": "^3.4.9"
   }
 }

@@ -1,12 +1,18 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 const Index = ({ data }) => {
   if (data && data.info && data.info.godses) {
     return (
       <ul>
         {data.info.godses.map(god => {
-          return <li>{god.name.name}</li>;
+          return (
+            <li>
+              <Link to={`/${god.name.name.toLowerCase()}_timeline`}>
+                {god.name.name}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     );
@@ -23,6 +29,10 @@ export const query = graphql`
         gender
         name {
           name
+        }
+        photo {
+          fileName
+          url
         }
       }
     }
