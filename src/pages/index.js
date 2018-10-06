@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import Baba, { BabaManager, CrossFadeMove } from "yubaba";
 import styled from "styled-components";
 import { State } from "react-powerplug";
+
+import { Transition, Spring, config } from "react-spring";
 
 const StyledCard = styled.div`
   width: auto;
@@ -17,71 +18,96 @@ const MiddlePath = styled.div`
   padding: 0 20%;
 `;
 
+const Grid = styled.div`
+  display: grid;
+`;
+
+const Card = styled.div`
+  width: 300px;
+  height: 150px;
+  cursor: pointer;
+  border: 1px solid;
+  margin: 20px;
+`;
+
+const ProfileImage = styled.img`
+  width: 70px;
+  height: 80px;
+  margin-right: 20px;
+  cursor: pointer;
+  transform: scale(${props => props.scale});
+  ${props => (props.showPage ? `position: absolute; top: 20px` : ``)};
+`;
+
+const Flex = styled.div`
+  display: flex;
+  padding: 10px;
+`;
+
+const Name = styled.h3`
+  margin-top: 0;
+`;
+
 const Index = ({ data }) => {
-  console.log(data);
   if (data && data.info && data.info.godses) {
     return (
-      <ul>
-        {data.info.godses.map(god => {
-          const { name, stories } = god;
-          const routeName = name.toLowerCase();
-          return (
-            <State initial={{ showPage: false }} key={name}>
-              {({ state, setState }) => (
+      <Grid>
+        <State initial={{ showPage: false, godName: undefined }}>
+          {({ state, setState }) => {
+            return data.info.godses.map(god => {
+              const {
+                name,
+                stories,
+                photo: { url }
+              } = god;
+              const routeName = name.toLowerCase();
+              if (state.godName && state.godName !== name) return null;
+              return (
                 <Fragment>
-                  <BabaManager>
-                    {() => (
-                      <Fragment>
-                        {state.showPage || (
-                          <Baba name={routeName}>
-                            <CrossFadeMove zIndex={999}>
-                              {({ style, ref }) => (
-                                <div style={style} ref={ref}>
-                                  <button
-                                    onClick={() => setState({ showPage: true })}
-                                  >
-                                    {name}
-                                  </button>
-                                </div>
-                              )}
-                            </CrossFadeMove>
-                          </Baba>
-                        )}
-
-                        {state.showPage && (
-                          <div>
-                            <Baba name={routeName}>
-                              <CrossFadeMove zIndex={1000}>
-                                {({ style, ref }) => (
-                                  <div ref={ref}>
-                                    <h1
-                                      style={style}
-                                      onClick={() =>
-                                        setState({ showPage: false })
-                                      }
-                                    >
-                                      {name}
-                                    </h1>
-                                  </div>
-                                )}
-                              </CrossFadeMove>
-                            </Baba>
-                            <MiddlePath>
-                              {stories.map(story => {
-                                return <StyledCard>{story.title}</StyledCard>;
-                              })}
-                            </MiddlePath>
-                          </div>
-                        )}
-                      </Fragment>
-                    )}
-                  </BabaManager>
+                  <Spring
+                    from={{ scale: 1, fontSize: 16, margin: 0 }}
+                    to={{
+                      scale: state.showPage ? 1.4 : 1,
+                      fontSize: state.showPage ? 24 : 16,
+                      margin: "20px"
+                    }}
+                    key={routeName}
+                    config={config.wobbly}
+                  >
+                    {({ scale, fontSize, margin }) => {
+                      return (
+                        <div>
+                          <Flex>
+                            <ProfileImage
+                              src={url}
+                              scale={scale}
+                              showPage={state.showPage}
+                              onClick={() =>
+                                setState({
+                                  showPage: !state.showPage,
+                                  godName: state.showPage ? undefined : name
+                                })
+                              }
+                            />
+                            <Name style={{ fontSize, margin }}>{name}</Name>
+                            {state.showPage && (
+                              <MiddlePath>
+                                {stories.map(story => {
+                                  return <StyledCard>{story.title}</StyledCard>;
+                                })}
+                              </MiddlePath>
+                            )}
+                          </Flex>
+                        </div>
+                      );
+                    }}
+                  </Spring>
                 </Fragment>
-              )}
-            </State>
-          );
-        })}
-      </ul>
+              );
+            });
+          }}
+        </State>
+      </Grid>
     );
   }
   return null;
@@ -101,6 +127,9 @@ export const query = graphql`
         stories {
           title
         }
+        devotion
+        popularity
+        vehicle
       }
     }
   }

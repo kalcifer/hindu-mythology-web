@@ -6900,6 +6900,12 @@ react-powerplug@0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/react-powerplug/-/react-powerplug-0.1.6.tgz#054f25fd45f8c26a1f75ca02f62d07d12b712035"
 
+react-spring@^5.9.2:
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.9.2.tgz#4c4e048ffce24755eaa60acd2f3fe4a3d686ef16"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 react@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
@@ -8655,10 +8661,6 @@ yargs@^9.0.0:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
-
-yubaba@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/yubaba/-/yubaba-1.2.0.tgz#c45b9907c081dae415dfec572147588fcc876bf4"
 
 yurnalist@^0.2.1:
   version "0.2.1"
