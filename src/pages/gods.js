@@ -27,6 +27,7 @@ export const query = graphql`
   query GodQuery {
     info {
       godses {
+        id
         gender
         name
         photo {

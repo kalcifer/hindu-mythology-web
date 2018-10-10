@@ -36,6 +36,7 @@ export const query = graphql`
   query ScriptureQuery {
     info {
       scriptureses {
+        id
         name
         description
         level

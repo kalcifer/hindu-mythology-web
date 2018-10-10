@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 const Img = styled.img`
   display: block;
@@ -35,13 +36,15 @@ const NameSecond = styled.div`
   border-radius: 10px;
 `;
 
-export default ({ photo, name }) => {
+export default ({ photo, name, id }) => {
   return (
-    <ImgWrapper>
-      <Img src={photo.url} />
-      <Name>
-        <NameSecond>{name}</NameSecond>
-      </Name>
-    </ImgWrapper>
+    <Link to={`/gods/${name}`}>
+      <ImgWrapper>
+        <Img src={photo.url} />
+        <Name>
+          <NameSecond>{name}</NameSecond>
+        </Name>
+      </ImgWrapper>
+    </Link>
   );
 };

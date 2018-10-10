@@ -32,6 +32,7 @@ export const query = graphql`
   query StoryQuery {
     info {
       storieses {
+        id
         title
       }
     }
