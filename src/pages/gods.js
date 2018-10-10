@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Grid, Page } from "../styled";
-import { Header, GodCard } from "../components";
+import { Header, GodCard, Navigation } from "../components";
 
-const Index = ({ data }) => {
-  console.log(data);
+const Index = ({ data, location }) => {
   return (
     <Page>
       <Header />
+      <Navigation location={location} />
       {data &&
         data.info &&
         data.info.godses.length > 0 && (
