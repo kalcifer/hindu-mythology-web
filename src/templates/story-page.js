@@ -1,5 +1,10 @@
 import React from "react";
 
 export default ({ pageContext: { story } }) => {
-  return <div>{story.title}</div>;
+  return (
+    <div>
+      <h3>{story.title}</h3>
+      <div>Story body</div>
+    </div>
+  );
 };
