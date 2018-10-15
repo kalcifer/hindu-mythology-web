@@ -5480,6 +5480,10 @@ mem@^4.0.0:
     mimic-fn "^1.0.0"
     p-is-promise "^1.1.0"
 
+memoize-one@^3.1.1:
+  version "3.1.1"
+  resolved "http://registry.npmjs.org/memoize-one/-/memoize-one-3.1.1.tgz#ef609811e3bc28970eac2884eece64d167830d17"
+
 memory-fs@^0.4.0, memory-fs@~0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -6897,6 +6901,13 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-fluid-carousel@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-fluid-carousel/-/react-fluid-carousel-0.7.0.tgz#51d02964eb5495790ccd6f7448aaf7d6d2a6bec9"
+  dependencies:
+    react-node-resolver "^2.0.0"
+    react-window "^1.1.1"
+
 react-hot-loader@^4.1.0:
   version "4.3.11"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.11.tgz#fe5cf7be7700c249b58293f977c1e6e0900f0d87"
@@ -6916,6 +6927,10 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-node-resolver@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-node-resolver/-/react-node-resolver-2.0.0.tgz#f2de4a79499a47f89529402eb4ebc5d8ef4969e4"
+
 react-powerplug@0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/react-powerplug/-/react-powerplug-0.1.6.tgz#054f25fd45f8c26a1f75ca02f62d07d12b712035"
@@ -6925,6 +6940,13 @@ react-spring@^5.9.2:
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.9.2.tgz#4c4e048ffce24755eaa60acd2f3fe4a3d686ef16"
   dependencies:
     "@babel/runtime" "^7.0.0"
+
+react-window@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-window/-/react-window-1.2.1.tgz#d5a8b7f8cfbd0890910caad9ffdcdab78189024c"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one "^3.1.1"
 
 react@^16.5.2:
   version "16.5.2"
