@@ -15,6 +15,10 @@ exports.createPages = ({ graphql, actions }) => {
             godses {
               id
               name
+              stories {
+                title
+                id
+              }
             }
             scriptureses {
               id
@@ -31,6 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(god);
           const path = `/gods/${god.name}`;
           createPage({
+            matchPath: path,
             path,
             component: GodPageTemplate,
             context: {
@@ -43,6 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.info.scriptureses.forEach(scripture => {
           const path = `/scriptures/${scripture.id}`;
           createPage({
+            matchPath: path,
             path,
             component: ScripturePageTemplate,
             context: {
@@ -55,6 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.info.storieses.forEach(story => {
           const path = `/stories/${story.id}`;
           createPage({
+            matchPath: path,
             path,
             component: StoryPageTemplate,
             context: {
